@@ -1,0 +1,150 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap");
+
+/* CSS CUSTOM PROPERTIED */
+
+:root {
+  --ff-primary: "Lato", sans-serif;
+
+  --fs-300: 0.875rem;
+  --fs-400: 1rem;
+  --fs-500: 1.5rem;
+  --fs-600: 2rem;
+  --fs-700: 3rem;
+  --fs-800: 4rem;
+
+  --clr-bgBody: hsl(244, 19%, 28%);
+  --clr-bgSeat: hsl(240, 10%, 42%);
+  --clr-bgShowcase: hsla(0, 0%, 2%, 0.1);
+  --clr-showcase: hsl(0, 0%, 47%);
+  --clr-selected: hsl(185, 64%, 74%);
+  --clr-neutral-100: hsl(0, 0%, 100%);
+}
+
+
+/* CSS RESET */
+
+*,
+::before,
+::after {
+    box-sizing: border-box;
+}
+
+/* GENERAL/GLOBAL STYLES */
+
+body {
+    background-color: var(--clr-bgBody);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    color: var(--clr-neutral-100);
+    font-family: var(--ff-primary);
+}
+
+.text {
+    font-size: var(--fs-500);
+    margin: 5px 0;
+}
+
+.text span {
+    color: var(--clr-selected);
+    font-size: var(--fs-500);
+}
+
+/* CONTAINER STYLES */
+
+.movie__container {
+    margin: 20px 0;
+}
+
+.movie__container select {
+    background-color: var(--clr-neutral-100);
+    border: 0;
+    border-radius: 5px;
+    font-size: var(--fs-300);
+    margin-left: .625rem;
+    padding: 5px 15px 5px 15px;
+}
+
+.seat__container {
+    perspective: 1000px;
+    margin-bottom: 30px;
+}
+
+/* SEATS & ROWS */
+
+.seat {
+  background-color: var(--clr-bgSeat); 
+  height: 2rem; 
+  width: 2.125rem;
+  margin: .1875rem;
+  border-top-left-radius: .625rem;
+  border-top-right-radius: .625rem;
+}
+
+.seat.selected {
+    background-color: var(--clr-selected);
+}
+
+.seat.occupied {
+    background-color: var(--clr-neutral-100);
+}
+
+.seat:nth-of-type(2) {
+    margin-right: 1.125rem;
+}
+
+.seat:nth-last-of-type(2) {
+    margin-left: 1.125rem;
+}
+
+.seat:not(.occupied):hover {
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
+.row {
+    display: flex;
+}
+
+/* SHOWCASE */
+
+.showcase .seat:not(.occupied):hover {
+    cursor: default;
+    transform: scale(1);
+}
+
+.showcase {
+    display: flex;
+    justify-content: space-between;
+    background: var(--clr-bgShowcase);
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: var(--clr-showcase);
+    list-style: none;
+}
+
+.showcase li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10px;
+    font-size: var(--fs-500);
+}
+
+.showcase li small {
+    margin-left: 2px;
+    color: var(--clr-neutral-100);
+}
+
+.screen {
+    background-color: var(--clr-neutral-100);
+    height: 6rem;
+    width: 100%;
+    margin: 15px 0;
+    transform: rotateX(-45deg);
+    box-shadow: 0 3px 10px rgba(255, 255, 255, 0.7);
+    border-radius: 5px;
+}
